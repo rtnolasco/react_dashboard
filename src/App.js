@@ -137,7 +137,6 @@ function App() {
 								element={<Stacked />}
 							/>
 						</Routes>
-						<div></div>
 					</div>
 				</div>
 			</BrowserRouter>
