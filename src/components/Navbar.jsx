@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { FiShoppingCart } from 'react-icons/fi';
 import { BsChatLeft } from 'react-icons/bs';
@@ -9,7 +9,6 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import avatar from '../data/avatar.jpg';
 import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
-import { useEffect } from 'react';
 
 const NavButton = ({
 	title,
@@ -36,12 +35,13 @@ const NavButton = ({
 
 const Navbar = () => {
 	const {
+		currentColor,
 		activeMenu,
 		setActiveMenu,
 		handleClick,
 		isClicked,
-		screenSize,
 		setScreenSize,
+		screenSize,
 	} = useStateContext();
 
 	useEffect(() => {
@@ -63,35 +63,36 @@ const Navbar = () => {
 			setActiveMenu(true);
 		}
 	}, [screenSize]);
+
+	const handleActiveMenu = () => setActiveMenu(!activeMenu);
+
 	return (
 		<div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
 			<NavButton
 				title="Menu"
-				customFunc={() =>
-					setActiveMenu((prevActiveMenu) => !prevActiveMenu)
-				}
-				color="blue"
+				customFunc={handleActiveMenu}
+				color={currentColor}
 				icon={<AiOutlineMenu />}
 			/>
 			<div className="flex">
 				<NavButton
 					title="Cart"
 					customFunc={() => handleClick('cart')}
-					color="blue"
+					color={currentColor}
 					icon={<FiShoppingCart />}
 				/>
 				<NavButton
 					title="Chat"
 					dotColor="#03C9D7"
 					customFunc={() => handleClick('chat')}
-					color="blue"
+					color={currentColor}
 					icon={<BsChatLeft />}
 				/>
 				<NavButton
 					title="Notification"
 					dotColor="rgb(254, 201, 15)"
 					customFunc={() => handleClick('notification')}
-					color="blue"
+					color={currentColor}
 					icon={<RiNotification3Line />}
 				/>
 				<TooltipComponent
@@ -112,7 +113,7 @@ const Navbar = () => {
 								Hi,
 							</span>{' '}
 							<span className="text-gray-400 font-bold ml-1 text-14">
-								Riki
+								Michael
 							</span>
 						</p>
 						<MdKeyboardArrowDown className="text-gray-400 text-14" />
