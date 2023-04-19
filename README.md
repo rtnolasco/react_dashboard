@@ -1,11 +1,8 @@
-# Getting Started with Create React App
+# React Portfolio Dashboard
 
 This project is build under React JS, Tailwind, Context API.
 
-## Available Scripts
+## App Description
+ building portfolio app which based on dashboard that will feature react skills  
 
-In the project directory, you can run:
 
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# react_dashboard
